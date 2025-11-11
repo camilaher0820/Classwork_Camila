@@ -1,7 +1,9 @@
 ---
 title: "Classwork Activity"
-author: "Enter Your Name"
-output: html_notebook
+author: "Camila Hernandez"
+output:
+  html_document:
+    df_print: paged
 ---
 
 
@@ -22,17 +24,25 @@ students <- data.frame(
 head(students)
 ```
 
-
 ## Step 2: Drop a column
 
 ```{r}
-# Remove the Name column
+library(dplyr)
+```
 
+```{r}
+# Remove the Name column
+Students_Clean <- students %>%
+  select(-Name)
+
+
+Students_Clean
 ```
 
 
 ### Question:
 Why might someone drop a column like name or ID from a dataset?
+- Someone might drop a column like name or ID from a dataset because a analysis of data from other columns might be needed, where names or ids aren't really  relevant. An example, an analysis focuses on trends by majors rather than individual students. 
 
 ### Answer:
 
@@ -58,9 +68,16 @@ ggplot(Students_Clean, aes(x = Major, y = Satisfaction, fill = Major)) +
 ### Questions:
 
 1. What pattern or difference do you see in the chart?
+-  Math has the smallest amount of students yet, is the highest in satisfaction. There isnt really a claer pattern or relation between the number of students and  the satisfaction. 
+
 2. What might explain it?
+- This could be because of many different reasons, class sizes, professors, students preferences and many other factors
+
 3. Do you think this chart is accurate?
+- It could be but definitely not the most accurate.
+
 4. Why? Why not?
+- This is a very small amount of student surveyed, there aren't equal amounts of data from students in each major so the data might not represent the whole groups opinion, especially a whole major.
 
 ## Step 5: Questions on Git, GitHub and R Markdown
 
@@ -74,4 +91,10 @@ ggplot(Students_Clean, aes(x = Major, y = Satisfaction, fill = Major)) +
 6. How could R Markdown help you explain your analysis to someone else?
 
 ### Answers:
+1. Add files to a commit
+2. Git commit saves it in your computer and git push updates the files in git hub
+3. It stores all your code in one place and makes it easily accessible
+4. This shows the changes made so people collaborating don't overwrite other peoples code and it lets you see all past changed made.
+5. A code chunk is the chunk  were you can write and execute code while regular text is just used to write down comments.
+6. You could use different types of graphs to visualize data, add text with explanations, results and other analysis.
 
